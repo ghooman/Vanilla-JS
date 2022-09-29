@@ -16,14 +16,27 @@ $("#close").on("click", function () {
 });
 
 $("form").on("submit", function (e) {
-  if (document.getElementById("email").value === "") {
+  let emailInputValue = document.getElementById("email").value;
+  let pwInputValue = document.getElementById("pw").value;
+  if (emailInputValue === "") {
     alert("아이디를 입력하세요");
+    e.preventDefault();
   }
-  if (document.getElementById("pw").value === "") {
+  if (/\S+@\S+\.\S+/.test(emailInputValue) === false) {
+    alert("이메일 형식이 아닙니다.");
+    e.preventDefault();
+  }
+  if (pwInputValue === "") {
     alert("비밀번호를 입력하세요");
+    e.preventDefault();
   }
-  if (document.getElementById("pw").value.length < 6) {
+  if (pwInputValue.length < 6) {
     alert("비밀번호를 6자 이상 입력하세요.");
+    e.preventDefault();
+  }
+  if (/[A-Z]/.test(pwInputValue) === false) {
+    alert("비밀번호에 대문자를 포함해야 합니다.");
+    e.preventDefault();
   }
 });
 
@@ -40,3 +53,15 @@ $(".badge").on("click", function () {
     $("#modeChange").removeClass("dark");
   }
 });
+
+let giftCount = 5;
+
+let giftCountDown = setInterval(function () {
+  giftCount -= 1;
+  if (giftCount >= 0) {
+    document.querySelector("#num").innerHTML = giftCount;
+  }
+}, 1000);
+
+// clearTimeout(giftCountDown);
+// document.querySelector("#gift").style.display = "none"
