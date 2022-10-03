@@ -32,8 +32,11 @@ $(".badge").on("click", function () {
   count += 1;
   if (count % 2 === 1) {
     $(".badge").html("Light 🔄");
-  }
-  if (count % 2 === 0) {
+    $("#navbar").addClass("navbar-dark bg-dark");
+    $("#modeChange").addClass("dark");
+  } else {
     $(".badge").html("Dark 🔄");
+    $("#navbar").removeClass("navbar-dark bg-dark");
+    $("#modeChange").removeClass("dark");
   }
 });
