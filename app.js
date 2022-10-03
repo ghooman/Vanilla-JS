@@ -17,15 +17,23 @@ $("#close").on("click", function () {
 
 $("form").on("submit", function (e) {
   if (document.getElementById("email").value === "") {
-    e.preventDefault();
     alert("아이디를 입력하세요");
   }
   if (document.getElementById("pw").value === "") {
-    e.preventDefault();
     alert("비밀번호를 입력하세요");
   }
   if (document.getElementById("pw").value.length < 6) {
-    e.preventDefault();
     alert("비밀번호를 6자 이상 입력하세요.");
+  }
+});
+
+let count = 0;
+$(".badge").on("click", function () {
+  count += 1;
+  if (count % 2 === 1) {
+    $(".badge").html("Light 🔄");
+  }
+  if (count % 2 === 0) {
+    $(".badge").html("Dark 🔄");
   }
 });
