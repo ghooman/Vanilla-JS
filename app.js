@@ -63,16 +63,39 @@ let giftCountDown = setInterval(function () {
   }
 }, 1000);
 
+let nowPicture = 0;
+
 $(".slide-1").on("click", () => {
   $(".slide-container").css("transform", "translateX(0vw)");
+  nowPicture = 0;
 });
 
 $(".slide-2").on("click", () => {
   $(".slide-container").css("transform", "translateX(-100vw)");
+  nowPicture = 1;
 });
 
 $(".slide-3").on("click", () => {
   $(".slide-container").css("transform", "translateX(-200vw)");
+  nowPicture = 2;
+});
+
+$(".next").on("click", () => {
+  if (nowPicture < 2) {
+    nowPicture++;
+    $(".slide-container").css("transform", `translateX(-${nowPicture}00vw)`);
+
+    console.log(nowPicture);
+  }
+});
+
+$(".before").on("click", () => {
+  if (nowPicture > 0) {
+    nowPicture--;
+    $(".slide-container").css("transform", `translateX(-${nowPicture}00vw)`);
+
+    console.log(nowPicture);
+  }
 });
 
 // clearTimeout(giftCountDown);
