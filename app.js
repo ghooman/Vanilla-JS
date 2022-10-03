@@ -63,5 +63,17 @@ let giftCountDown = setInterval(function () {
   }
 }, 1000);
 
+$(".slide-1").on("click", () => {
+  $(".slide-container").css("transform", "translateX(0vw)");
+});
+
+$(".slide-2").on("click", () => {
+  $(".slide-container").css("transform", "translateX(-100vw)");
+});
+
+$(".slide-3").on("click", () => {
+  $(".slide-container").css("transform", "translateX(-200vw)");
+});
+
 // clearTimeout(giftCountDown);
 // document.querySelector("#gift").style.display = "none"
